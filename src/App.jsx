@@ -8,6 +8,8 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
+import PostDetail from "./components/PostDetail/PostDetail";
+import Search from "./components/Search/Search";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/search/:search" element={<Search/>}/>
+          <Route path="/postDetail/:id" element={<PostDetail/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register />} />
