@@ -10,19 +10,39 @@ import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import PostDetail from "./components/PostDetail/PostDetail";
 import Search from "./components/Search/Search";
+import PrivateZone from "./guards/PrivateZone";
+import Admin from "./components/Admin/Admin";
+import AdminZone from "./guards/AdminZone";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
     <>
       <Router>
-        <Header/>
+        <Header />
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/search/:search" element={<Search/>}/>
-          <Route path="/postDetail/:id" element={<PostDetail/>}/>
-          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/admin"
+            element={
+              <AdminZone>
+                <Admin />
+              </AdminZone>
+            }
+          />
+          <Route path="/search/:search" element={<Search />} />
+          <Route path="/postDetail/:id" element={<PostDetail />} />
+          <Route
+            path="/profile"
+            element={
+              <PrivateZone>
+                <Profile />
+              </PrivateZone>
+            }
+          />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </>
